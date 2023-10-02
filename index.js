@@ -24,26 +24,13 @@
 
 
 
-// using promise
-// const prom = new Promise((resolve, reject) => {});
 
-const {MongoClient} = require("mongodb");
-const url = 'mongodb://127.0.0.1:27017';
 
-const client = new MongoClient(url);
-const database1 = "e-comm";
+const dbconnect = require("./mongodb-connection")
 
-//Database connection
-async function dbconnect () {
-    const result = await client.connect();
-    const database = result.db(database1);
-    return database.collection("products"); 
-}
+//find and display/read the data
 
-// console.warn(dbconnect());
-
-//find and display data
-
+// //use promise
 // dbconnect().then((resolve) => {
 //     resolve.find().toArray().then((data) => {
 //         console.log(data);
